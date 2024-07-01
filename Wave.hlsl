@@ -6,7 +6,7 @@
 // 4    : Square    //
 //==================//
 float PI = 3.141592;
-float Wave(int waveMode, float waveSpeed)
+float wave(int waveMode, float waveSpeed)
 {
     float speed = _Time.y * waveSpeed;
     float wave = 0.;
@@ -17,4 +17,11 @@ float Wave(int waveMode, float waveSpeed)
     if(waveMode == 4)    wave = step(.5, frac(speed * .5 + .5));
 
     return wave;
+}
+
+// 幅を決めれる矩形波
+// wには幅を入れる。0~1までの入力に対応
+float squareWave(float x, float w)
+{
+    return step(1. - w, fract(x + 1. - w));
 }
